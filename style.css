@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+html{
+    font-size: 100%;
+}
+
+body{
+    text-align: center;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+/* スクロールアニメーション */
+
+.fadetextTrigger{
+    opacity: 0;
+    display: block;
+    min-height: 1px;
+}
+
+
+.fadetext{
+    animation: fadeOnlyAnime 3s forwards;
+}
+
+@keyframes fadetextAnime{
+    0%{
+      opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.fadephotoTrigger{
+    opacity: 0;
+}
+
+.fadephoto{
+     animation: fadeSlideAnime 1s forwards;
+}
+
+@keyframes fadephotoAnime{
+    0%{transform: translateY(50px);opacity: 0;}
+    100%{transform: translateY(0);opacity: 1;}
+}
+
+/* スライドショー設定 */
+
+.slide img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    object-fit: cover;
+    animation: slide 28s infinite;
+    opacity: 0;
+}
+
+.slide img:nth-child(1) { animation-delay: 0s; }
+.slide img:nth-child(2) { animation-delay: 7s; }
+.slide img:nth-child(3) { animation-delay: 14s; }
+.slide img:nth-child(4) { animation-delay: 21s; }
+
+
+@keyframes slide {
+  0% { opacity: 0;transform: scale(1);}
+  5% { opacity: 1;}
+  25% { opacity: 1;transform: scale(1.05); }
+  30% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.main_wrapper{
+    width: 100%;
+    background-color: black;
+}
+
+.main_container{
+    max-width: 767px;
+    margin: auto;
+}
+
+p{
+    color: #eee;
+}
+
+/* タイトル画像 */
+
+.title{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.titleimg{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.titleimg img{
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0;
+}
+
+.titleimg img:nth-child(1) { animation: slide 3s ease-in-out;animation-delay: 1s; }
+.titleimg img:nth-child(2) { animation: slide 2s ease-in-out;animation-delay: 3.2s;}
+.titleimg img:nth-child(3) { animation: slide 2s ease-in-out;animation-delay: 4.4s; }
+.titleimg img:nth-child(4) { animation: slide 2s ease-in-out;animation-delay: 5.6s; }
+
+.titleimg img:nth-child(5) { 
+     animation: slidelast 7s ease-in-out;animation-delay: 16s; z-index: 2;
+}
+
+
+@keyframes slide {
+  0% { opacity: 0;transform: scale(1);}
+  70% { opacity: 1; transform: scale(1);}
+  100% { opacity: 0; transform: scale(1.05);}
+}
+@keyframes slidelast {
+  0% { opacity: 0;transform: scale(1);}
+  60% { opacity: 1; transform: scale(1);}
+  80% { opacity: 1; transform: scale(1);}
+  100% { opacity: 0; transform: scale(1.1);}
+}
+
+
+
+
+/* タイトルSVG */
+
+.svgtitle{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    position: absolute;
+}
+
+.svgflex1 svg{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.svgflex2 svg{
+    width: 4rem;
+    height: 4rem;
+}
+
+.svgflex1{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.svgflex2{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+
+    /* animation: draw 4s ease-in-out forwards; */
+
+
+.svgflex1 svg:nth-child(1){
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: draw250 3s  forwards;
+    animation-delay: 8s;
+}
+.svgflex1 svg:nth-child(2){
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw200 3s  forwards;
+    animation-delay: 8.75s;
+}
+.svgflex1 svg:nth-child(3){
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw200 2.5s  forwards;
+    animation-delay: 9.5s;
+}
+.svgflex1 svg:nth-child(4){
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw200 2s forwards;
+    animation-delay: 10s;
+}
+.svgflex1 svg:nth-child(5){
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw200 2s forwards;
+    animation-delay: 10.5s;
+}
+.svgflex2 svg:nth-child(1){
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: draw150 3s  forwards;
+    animation-delay: 12.5s;
+}
+.svgflex2 svg:nth-child(2){
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw200 2.5s forwards;
+    animation-delay: 12.5s;
+}
+.svgflex2 svg:nth-child(3){
+    stroke-dasharray: 275;
+    stroke-dashoffset: 275;
+    animation: draw275 2.5s forwards;
+    animation-delay: 12.5s;
+}
+
+
+@keyframes draw200 {
+0% {
+    opacity: 0.2;
+    stroke-dashoffset: 200;
+  }
+
+  100%{
+    opacity: 1;
+     stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes draw150 {
+0% {
+    opacity: 0.2;
+    stroke-dashoffset: 150;
+  }
+
+  100%{
+    opacity: 1;
+     stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes draw275 {
+0% {
+    opacity: 0.2;
+    stroke-dashoffset: 275;
+  }
+
+  100%{
+    opacity: 1;
+     stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes draw250 {
+0% {
+    opacity: 0.2;
+    stroke-dashoffset: 250;
+  }
+
+  100%{
+    opacity: 1;
+     stroke-dashoffset: 0;
+  }
+}
