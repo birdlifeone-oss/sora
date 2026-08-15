@@ -1,4 +1,8 @@
 const fadetexttargets = document.querySelectorAll('.fadetextTrigger');
+// 画面幅で条件分岐
+const isPC = window.matchMedia('(min-width: 1025px)').matches;
+// rootMargin も必要ならここで分岐可能
+const textRootMargin = isPC ? '0px 0px -20% 0px' : '0px 0px -30% 0px';
 
 
 const observerFade = new IntersectionObserver((entries) => {
@@ -10,7 +14,7 @@ const observerFade = new IntersectionObserver((entries) => {
   });
 },{
   root: null,
-  rootMargin: '0px 0px -20% 0px',
+  rootMargin: textRootMargin,
   threshold: 0
 });
 
@@ -20,8 +24,7 @@ fadetexttargets.forEach(target => observerFade.observe(target));
 
 const fadeimgtargets = document.querySelectorAll('.fadeimgTrigger');
 
-// 画面幅で条件分岐
-const isPC = window.matchMedia('(min-width: 1025px)').matches;
+
 
 // PC：画像が半分見えたら → threshold: 0.5  
 // タブレット以下：画像が全部入ったら → threshold: 1
