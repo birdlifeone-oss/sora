@@ -161,6 +161,19 @@ img{
     height: 4rem;
 }
 
+@media(max-width:787px){
+    .svgflex1 svg{
+    width: 3rem;
+    height: 3rem;
+}
+
+.svgflex2 svg{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+}
+
 .svgflex1{
     display: flex;
     flex-direction: row;
@@ -305,6 +318,8 @@ h2{
     color: white;
     font-size: 4rem;
 }
+
+
 
 .scene{
     width: 100%;
